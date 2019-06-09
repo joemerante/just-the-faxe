@@ -5,7 +5,7 @@
 
 This toy project started as a quick refresher on a few concepts and chance to work with some new libraries. Its goal is to provide a simple way to view guitars, by maker or player. The git history might be more fun than the project, for now :)
 
-If you clone the project and run `npm start`, on localhost:8080 you should see a list of guitars from src/seeds.js. 
+If you clone the project and run `npm install` followed by `npm start`, on localhost:8080 you should see a list of guitars from src/seeds.js. 
 
 Coming soon! See it live at [just-the-faxe.com](just-the-faxe.com)
 *(refreshing or opening the site in a new tab will clear your changes)*
