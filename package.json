@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "just playing around with misc js libraries",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "^4.17.11"
+  },
   "devDependencies": {
     "browserify": "^16.2.3",
     "lokijs": "^1.5.6",
