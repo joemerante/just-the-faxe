@@ -1,31 +1,37 @@
 import loki from 'lokijs';
+import { guitarMakers } from './seeds.js';
 
 let db = new loki('Guitars');
 let makers = db.addCollection('makers', { indices: ['name'] });
 
-// TODO - move a few of thse to seeds.js
-let gibson = makers.insert( {name: 'Gibson', location: 'Nashville'} )
-let fender = makers.insert( {name: 'Fender', location: 'Corona'} )
+if (guitarMakers && guitarMakers.length) {
+  guitarMakers.forEach( maker => {
+    makers.insert(maker);
+  });
+}
 
-// move these somewhere on the tableComponent
-// let g = makers.findOne('name', 'Gibson')
-// let customFilter = (obj) => {
-//   return obj.name.match(/regex/)
-// }
+let addItem = (list = null, txt = "Nothing to see here...") => {
+  const ul = list ? list : document.createElement('ul');
+  let li = document.createElement('li');
+  li.innerHTML = txt;
+  ul.appendChild(li);
+  return list;
+}
 
 function tableComponent() {
   const element = document.createElement('div');
   const list = document.createElement('ul');
   const makers = db.getCollection('makers');
 
-  makers.data.forEach(obj => {
-    let li = document.createElement('li');
-    li.innerHTML = obj.name;
-    list.appendChild(li);
-  });
+  if (!makers) {
+    addItem(list);
+  } else {
+    makers.data.forEach(obj => {
+      addItem(list, obj.name);
+    });
+  }
 
   element.appendChild(list);
-
   return element;
 }
 
