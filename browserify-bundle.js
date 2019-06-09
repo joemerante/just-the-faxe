@@ -1,21 +1,4 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-// https://github.com/techfort/LokiJS/wiki
-
-var loki = require('lokijs')
-var guitars = new loki('Guitars')
-
-var makers = guitars.addCollection('makers', { indices: ['name'] });
-undefined
-var gibson = makers.insert( {name: 'Gibson', location: 'Nashville'} )
-
-let g = makers.findOne('name', 'Gibson')
-
-console.log(g)
-
-let customFilter = (obj) => {
-  return obj.name.match(/regex/)
-}
-},{"lokijs":3}],2:[function(require,module,exports){
 /*
   Loki IndexedDb Adapter (need to include this script to use it)
 
@@ -649,7 +632,7 @@ let customFilter = (obj) => {
   }());
 }));
 
-},{}],3:[function(require,module,exports){
+},{}],2:[function(require,module,exports){
 (function (process,global){
 /**
  * LokiJS
@@ -8083,7 +8066,24 @@ let customFilter = (obj) => {
 }));
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./loki-indexed-adapter.js":2,"_process":5,"fs":4}],4:[function(require,module,exports){
+},{"./loki-indexed-adapter.js":1,"_process":5,"fs":4}],3:[function(require,module,exports){
+// https://github.com/techfort/LokiJS/wiki
+
+var loki = require('lokijs')
+var guitars = new loki('Guitars')
+
+var makers = guitars.addCollection('makers', { indices: ['name'] });
+undefined
+var gibson = makers.insert( {name: 'Gibson', location: 'Nashville'} )
+
+let g = makers.findOne('name', 'Gibson')
+
+console.log(g)
+
+let customFilter = (obj) => {
+  return obj.name.match(/regex/)
+}
+},{"lokijs":2}],4:[function(require,module,exports){
 
 },{}],5:[function(require,module,exports){
 // shim for using process in browser
@@ -8271,4 +8271,4 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}]},{},[1]);
+},{}]},{},[3]);
