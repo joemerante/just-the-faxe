@@ -2,7 +2,7 @@
   "name": "try-loki",
   "version": "1.0.0",
   "description": "just playing around with misc js libraries",
-  "main": "index.js",
+  "private": true,
   "dependencies": {},
   "devDependencies": {
     "browserify": "^16.2.3",
